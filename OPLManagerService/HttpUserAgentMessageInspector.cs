@@ -26,7 +26,7 @@ namespace OPLManagerService
                 var userAgent = httpRequestMessageProperty.Headers[USER_AGENT_HTTP_HEADER];
 
                 if (string.IsNullOrEmpty(userAgent))
-                    httpRequestMessageProperty.Headers[USER_AGENT_HTTP_HEADER] = UserAgent;                
+                    httpRequestMessageProperty.Headers[USER_AGENT_HTTP_HEADER] = UserAgent;
             }
             else
             {
