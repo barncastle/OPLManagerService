@@ -22,11 +22,11 @@ namespace OPLManagerService
         {
             if (request.Properties.TryGetValue(HttpRequestMessageProperty.Name, out object obj))
             {
-                var httpRequestMessageProperty = obj as HttpRequestMessageProperty;
-                if (string.IsNullOrEmpty(httpRequestMessageProperty.Headers[USER_AGENT_HTTP_HEADER]))
-                {
-                    httpRequestMessageProperty.Headers[USER_AGENT_HTTP_HEADER] = UserAgent;
-                }
+                var httpRequestMessageProperty = (HttpRequestMessageProperty)obj;
+                var userAgent = httpRequestMessageProperty.Headers[USER_AGENT_HTTP_HEADER];
+
+                if (string.IsNullOrEmpty(userAgent))
+                    httpRequestMessageProperty.Headers[USER_AGENT_HTTP_HEADER] = UserAgent;                
             }
             else
             {

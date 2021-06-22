@@ -6,6 +6,8 @@ namespace OPLManagerService
 {
     public class HttpUserAgentEndpointBehavior : IEndpointBehavior
     {
+        private readonly string UserAgent;
+
         public HttpUserAgentEndpointBehavior(string agent)
         {
             UserAgent = agent;
@@ -27,7 +29,5 @@ namespace OPLManagerService
         public void Validate(ServiceEndpoint endpoint)
         {
         }
-
-        private readonly string UserAgent;
     }
 }
